@@ -3,12 +3,20 @@ import Squares from "./square";
 
 const Board = () => {
     return <div style={{
-        backgroundColor: "skyblue",
         margin: 10,
         padding:20
-    }}>
+    }} className="board">
     Board
-    <Squares />
+    <div className="board-row">
+    <Squares /> <Squares /> <Squares />
+    </div>
+    <div className="board-row">
+    <Squares /> <Squares /> <Squares />
+    </div>
+    <div className="board-row">
+    <Squares /> <Squares /> <Squares />
+    </div>
+    
     </div>
 }
 
