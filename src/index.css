@@ -16,6 +16,8 @@ body {
 
 .board{
   background: linear-gradient(122deg, rgba(0,0,0,1) 0%, rgba(113,14,14,1) 68%, rgba(255,255,255,1) 100%);
+  margin: 10px;
+  padding: 20px;
 }
 .board-row{
   display: flex;
@@ -33,4 +35,10 @@ body {
   text-align: center;
   width: 150px;
   height: 150px;
+}
+
+.square:focus{
+  outline: none;
+  background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,61,61,1) 39%, rgba(0,0,0,1) 90%);
+
 }

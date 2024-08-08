@@ -2,19 +2,22 @@ import React from "react";
 import Squares from "./square";
 
 const Board = () => {
-    return <div style={{
-        margin: 10,
-        padding:20
-    }} className="board">
+
+    const renderSquare = (i) =>{
+        return <Squares />;
+    }
+
+    return <div className="board">
     Board
+    <hr />
     <div className="board-row">
-    <Squares /> <Squares /> <Squares />
+    {renderSquare(0)} {renderSquare(1)} {renderSquare(2)}
     </div>
     <div className="board-row">
-    <Squares /> <Squares /> <Squares />
+    {renderSquare(3)} {renderSquare(4)} {renderSquare(5)}
     </div>
     <div className="board-row">
-    <Squares /> <Squares /> <Squares />
+    {renderSquare(6)} {renderSquare(7)} {renderSquare(8)}
     </div>
     
     </div>
