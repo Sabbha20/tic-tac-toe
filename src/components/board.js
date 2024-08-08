@@ -2,20 +2,20 @@ import React, {useState} from "react";
 import Squares from "./square";
 
 const Board = () => {
-    const initialSquares = [
-        null, null, null,
-        null, null, null,
-        null, null, null,
-    ];
+    const initialSquares = Array(9).fill(null);
     const [squares, setSquares] = useState(initialSquares);
+    const [xIsNext, setXIsNext] = useState(true);
+
     const handleClickEvent = (i) => {
         // alert(`box ${i} is clicked!`)
+        
         //Make a copy of initial state
         const newSquares = [...squares];
         //Mutate the copy at i-th position
-        newSquares[i] = "X";
+        newSquares[i] = xIsNext ? "X" : "O";
         //setState to new state
         setSquares(newSquares);
+        setXIsNext(!xIsNext);
     }
 
     const renderSquare = (i) =>{
