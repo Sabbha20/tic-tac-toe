@@ -1,4 +1,5 @@
 import React from "react";
+import Squares from "./square";
 
 const Board = () => {
     return <div style={{
@@ -7,6 +8,7 @@ const Board = () => {
         padding:20
     }}>
     Board
+    <Squares />
     </div>
 }
 
