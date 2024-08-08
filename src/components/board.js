@@ -1,5 +1,7 @@
 import React, {useState} from "react";
 import Squares from "./square";
+import resetImg from "./imgs/reset.png"
+
 
 const Board = () => {
     const initialSquares = Array(9).fill(null);
@@ -12,15 +14,25 @@ const Board = () => {
     `Next Player: ${xIsNext ? "X" : "O"}`
 
     const handleClickEvent = (i) => {
-        // alert(`box ${i} is clicked!`)
+        
 
         //Make a copy of initial state
         const newSquares = [...squares];
+
+        if (winner || newSquares[i]) {
+            return;
+        }
+
         //Mutate the copy at i-th position
         newSquares[i] = xIsNext ? "X" : "O";
         //setState to new state
         setSquares(newSquares);
         setXIsNext(!xIsNext);
+    }
+
+    const resetGame = () => {
+        setSquares(initialSquares);
+        setXIsNext(true);
     }
 
     const renderSquare = (i) =>{
@@ -32,7 +44,11 @@ const Board = () => {
     }
 
     return <div className="board">
-    {status}
+    <div>{status}
+    <button onClick={resetGame} className="resetBtn">
+    <img alt="reset" src={resetImg} width="30" height="30" />
+    </button>
+    </div>
     <hr />
     <div className="board-row">
     {renderSquare(0)} {renderSquare(1)} {renderSquare(2)}
