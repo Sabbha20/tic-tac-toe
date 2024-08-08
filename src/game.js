@@ -7,7 +7,7 @@ import Board from "./components/board"
 const Game = () => {
     return (
         <div className="game">
-            Game
+            Tic-Tac-Toe
             <Board />
         </div>
     );
