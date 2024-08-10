@@ -40,7 +40,9 @@ body {
 .square:focus{
   outline: none;
   background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,61,61,1) 39%, rgba(0,0,0,1) 90%);
-
+}
+.winning{
+  background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(66,255,61,1) 100%, rgba(128,128,128,1) 100%);
 }
 
 .resetBtn{

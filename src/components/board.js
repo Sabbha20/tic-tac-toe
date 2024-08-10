@@ -10,7 +10,7 @@ const Board = () => {
 
     const winner = calculateWinner(squares);
     const status = winner ? 
-    `Player ${winner} wins!` :
+    `Player ${winner[0]} wins!` :
     `Next Player: ${xIsNext ? "X" : "O"}`
 
     const handleClickEvent = (i) => {
@@ -22,6 +22,7 @@ const Board = () => {
         if (winner || newSquares[i]) {
             return;
         }
+
 
         //Mutate the copy at i-th position
         newSquares[i] = xIsNext ? "X" : "O";
@@ -36,10 +37,14 @@ const Board = () => {
     }
 
     const renderSquare = (i) =>{
+        const isWinningSquare = winner && winner[1].includes(i);
+        const squareClass = isWinningSquare ? "square winning" : "square";
         return (
             <Squares 
             value={squares[i]}
-            onClickEvent={()=>handleClickEvent(i)} />
+            onClickEvent={()=>handleClickEvent(i)} 
+            class={squareClass}
+            />
         );
     }
 
@@ -73,7 +78,7 @@ function calculateWinner(squares){
     for(let line of lines){
         const [a,b,c] = line;
         if(squares[a] && squares[a]===squares[b] && squares[a]===squares[c]){
-            return squares[a];
+            return [squares[a], [a,b,c]];
         }
     }
     return null;
